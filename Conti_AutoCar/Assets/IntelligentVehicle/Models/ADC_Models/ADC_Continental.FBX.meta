@@ -1,0 +1,315 @@
+fileFormatVersion: 2
+guid: a765ccd07983b364eb148f85ce944b42
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_Aluminum
+    second: {fileID: 2100000, guid: 8b8b110af6857c54d9a593a92d2f8893, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_AluminumBrushedDark
+    second: {fileID: 2100000, guid: 5dd0e05d10c1e8f42aa392f82d5fa4a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_AluminumScratched
+    second: {fileID: 2100000, guid: eeafa46e0698e1c4192a3d3ee899f619, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_AluminumScratchedDark
+    second: {fileID: 2100000, guid: 620063bd75ef6024b8565655c7f5bc1f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_Background
+    second: {fileID: 2100000, guid: 2408e89ab2e1946449019831268cbde0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_Blue
+    second: {fileID: 2100000, guid: 6111a3a94cfa8fe4896bd730d45c24ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_CarPaintBlack
+    second: {fileID: 2100000, guid: f4698d8b38de0a24197e26fd25592315, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_CarPaint_Black
+    second: {fileID: 2100000, guid: f4698d8b38de0a24197e26fd25592315, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_CarPaint_BlackDisplay
+    second: {fileID: 2100000, guid: 9c74b8dbd82550e44806d55b9fdbe5c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_CarPaint_Brown
+    second: {fileID: 2100000, guid: 9b9137d060de05a43aa4642d7f2cf770, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_CarPaint_DarkGrey
+    second: {fileID: 2100000, guid: 7a4fa3250c7e7c7409643aa4e81a02c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_CarPaint_Pearl
+    second: {fileID: 2100000, guid: a59b4ffbc64297644a809db71a6dd8cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_ChromeDirtSatin
+    second: {fileID: 2100000, guid: c634a688bdf4df34db9ee1b16680e1e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_ChromeSatin
+    second: {fileID: 2100000, guid: 99641a010d2fd694ea3b29dff330ce6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_DarkGrey
+    second: {fileID: 2100000, guid: 7919f889c5b0d754781d758c902e5c99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_Display
+    second: {fileID: 2100000, guid: aad65d0d4bddc98468bb7a740093830a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_FabricBrushed_White
+    second: {fileID: 2100000, guid: af1474416275325488cb423e0160ab50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_FabricCoarseWeave_Black
+    second: {fileID: 2100000, guid: b982a6e6fb083fa4ca5d29db4226ff86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_FabricTwillFlecked_Black
+    second: {fileID: 2100000, guid: ba885ebc976482541a4a41a6a640a2cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_GlasBlack
+    second: {fileID: 2100000, guid: aa28b56d576fc19499c153f3f47d498e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_GlasBlack_1
+    second: {fileID: 2100000, guid: aa28b56d576fc19499c153f3f47d498e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_Glass
+    second: {fileID: 2100000, guid: 158b96c0496c18544b9a44cb7c23c7fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_GlassTinted
+    second: {fileID: 2100000, guid: b6b84f22d0ec59a40b79ffee75b03dc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_Grid
+    second: {fileID: 2100000, guid: 6d4b67c62b699b5488a5fa687258f37f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_InteriorChrome
+    second: {fileID: -4497488095754115253, guid: 87af3b1975f5d7d47a87fcafb0b679bd,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_Laufflache
+    second: {fileID: 2100000, guid: 8ebd184d22841f540b05fb10437f3aef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_LeatherBigGrain_White
+    second: {fileID: 2100000, guid: e857f669999a5ab4ea252c2af3203332, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_LeatherLargeGrain_Black
+    second: {fileID: 2100000, guid: 942dbe87431f9a444a47aa91f8ee1714, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_LeatherLargeGrain_White
+    second: {fileID: 2100000, guid: c154ba62d7ad0a14eada9a2896dae84c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_LeatherWhite
+    second: {fileID: 2100000, guid: 8b8b110af6857c54d9a593a92d2f8893, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_LeatherWhite_6
+    second: {fileID: 2100000, guid: 8b8b110af6857c54d9a593a92d2f8893, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_LeatherWhite_9
+    second: {fileID: 2100000, guid: 8b8b110af6857c54d9a593a92d2f8893, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_LedsRed
+    second: {fileID: 2100000, guid: bc564dc56d36f2f4d80caaa13722df6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_LedsWhite
+    second: {fileID: 2100000, guid: 89149a077ec114146b949c96fc359343, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_Nummernschild_Conti
+    second: {fileID: 2100000, guid: 8c205cab9fb828946a666cad53de1ead, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_PlasticBlue
+    second: {fileID: 2100000, guid: 5d456629b09fec245994ce7f06503b65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_PlasticNormal
+    second: {fileID: 2100000, guid: b1445fd2e1d48b64ca5bd23d748ba237, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_PlasticNormalWhite
+    second: {fileID: 2100000, guid: b16b30504597db14089faafe97edd795, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_PlasticTransparent
+    second: {fileID: 2100000, guid: aa7bae5d865df684f85fb5c07026a33f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_QuiltedMaple_Natural
+    second: {fileID: 2100000, guid: dfeb4e0ee6dc90e4c8a7cd922617b28a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ADC_Seite
+    second: {fileID: 2100000, guid: 4a3a91ecc53439a42be07754439d2597, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
