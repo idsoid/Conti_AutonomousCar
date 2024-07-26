@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private Transform centerPoint, playerCam;
+    private Transform centerPoint, player, playerCamera;
     [SerializeField]
     private GameObject spherePrefab;
     private bool leftGrabDown, rightGrabDown = false;
+    private float angle, height, radius = 0f;
+    private float spawnX, spawnY, spawnZ = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -41,38 +43,45 @@ public class GameManager : MonoBehaviour
             Debug.Log("rhand grab up");
             rightGrabDown = false;
         }
+
+        if (Vector2.Distance(new Vector2(playerCamera.position.x, playerCamera.position.z), new Vector2(centerPoint.position.x, centerPoint.position.z)) >= 0.2f)
+        {
+            Vector3 cameraOffset = playerCamera.position - centerPoint.position;
+            transform.position = new Vector3(transform.position.x - cameraOffset.x, transform.position.y, transform.position.z - cameraOffset.z);
+        }
     }
 
     private IEnumerator RoutineSpawn()
     {
-        WaitForSecondsRealtime wait = new(2f);
+        WaitForSecondsRealtime wait = new(0.5f);
 
         while (true)
         {
             yield return wait;
-
             
+            angle = Random.Range(-90f, 90f);
+            height = Random.Range(-0.3f, 0.3f);
+            radius = Random.Range(0.5f, 0.6f);
+            while (CheckPosSpawn(angle, height, radius))
+            {
+                Debug.Log("finding new spawn pos");
+                angle = Random.Range(-90f, 90f);
+                height = Random.Range(-0.3f, 0.3f);
+                radius = Random.Range(0.5f, 0.6f);
+            }
 
-            SpawnObject(Random.Range(-90f, 90f), Random.Range(-0.3f, 0.3f), Random.Range(0.5f, 0.6f));
+            Instantiate(spherePrefab, new Vector3(spawnX, spawnY, spawnZ) + centerPoint.position, Quaternion.identity);
         }
     }
-    private void SpawnObject(float angle, float height, float radius)
+    private bool CheckPosSpawn(float angleCheck, float heightCheck, float radiusCheck)
     {
         // Convert angle to radians
-        float angleInRadians = -(angle + centerPoint.eulerAngles.y - 90f) * Mathf.Deg2Rad;
-
+        float angleInRadians = -(angleCheck + centerPoint.eulerAngles.y - 90f) * Mathf.Deg2Rad;
         // Calculate position
-        float x = Mathf.Cos(angleInRadians) * radius;
-        float z = Mathf.Sin(angleInRadians) * radius;
-        float y = playerCam.position.y + height;
-        Instantiate(spherePrefab, new Vector3(x, y, z) + centerPoint.position, Quaternion.identity);
-    }
-    private void CheckSpawn()
-    {
-        float angle = Random.Range(-90f, 90f);
-        float height = Random.Range(-0.3f, 0.3f);
-        float radius = Random.Range(0.5f, 0.6f);
+        spawnX = Mathf.Cos(angleInRadians) * radiusCheck;
+        spawnZ = Mathf.Sin(angleInRadians) * radiusCheck;
+        spawnY = playerCamera.position.y + heightCheck;
 
-        Physics.CheckSphere(new Vector3(angle, height, radius) + centerPoint.position, 0.125f);
+        return Physics.CheckSphere(new Vector3(spawnX, spawnY, spawnZ) + centerPoint.position, 0.1f);
     }
 }

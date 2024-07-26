@@ -45,12 +45,24 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("left thumbstick: " + OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.LTouch));
 
         //Reset Orientation and Position
-        if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.LTouch))
+        //if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.LTouch))
+        //{
+        //    //Debug.Log("x pressed");
+        //    //transform.position = new Vector3(carPoints[0].position.x, transform.position.y, carPoints[0].position.z);
+        //    //transform.localEulerAngles = Vector3.zero;
+        //    //Vector2 playerPos = new Vector2(playerCamera.position.x, playerCamera.position.z);
+        //    //Vector2 targetPos = new Vector2(carPoints[0].position.x, carPoints[0].position.z);
+        //    if (Vector2.Distance(new Vector2(playerCamera.position.x, playerCamera.position.z), new Vector2(carPoints[0].position.x, carPoints[0].position.z)) >= 0.2f)
+        //    {
+        //        Vector3 cameraOffset = playerCamera.position - carPoints[0].position;
+        //        transform.position = new Vector3(transform.position.x - cameraOffset.x, transform.position.y, transform.position.z - cameraOffset.z);
+        //    }
+            
+        //}
+        if (Vector2.Distance(new Vector2(playerCamera.position.x, playerCamera.position.z), new Vector2(carPoints[0].position.x, carPoints[0].position.z)) >= 0.2f)
         {
-            Debug.Log("x pressed");
-            transform.position = new Vector3(carPoints[0].position.x, transform.position.y, carPoints[0].position.z);
-            transform.localEulerAngles = Vector3.zero;
-            playerCamera.localEulerAngles = Vector3.zero;
+            Vector3 cameraOffset = playerCamera.position - carPoints[0].position;
+            transform.position = new Vector3(transform.position.x - cameraOffset.x, transform.position.y, transform.position.z - cameraOffset.z);
         }
     }
 }
