@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallCheck : MonoBehaviour
+public class BallSpawn : MonoBehaviour
 {
+    private float decayTimer = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,9 +14,11 @@ public class BallCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics.CheckSphere(transform.position, 0.1f))
+        decayTimer += Time.deltaTime;
+        if (decayTimer >= 5.0f)
         {
-            Debug.Log("near");
+            GameManager.Instance.missed++;
+            Destroy(gameObject);
         }
     }
 }

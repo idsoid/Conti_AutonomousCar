@@ -4,18 +4,38 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager instance;
+    public static GameManager Instance { get { return instance; } }
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
+    private Coroutine coroutine;
     [SerializeField]
-    private Transform centerPoint, player, playerCamera;
+    private Transform centerPoint, playerCamera;
     [SerializeField]
     private GameObject spherePrefab;
+    [SerializeField]
+    private ControllerCollider leftCollider, rightCollider;
     private bool leftGrabDown, rightGrabDown = false;
+    public float currentSpeed = 0f;
     private float angle, height, radius = 0f;
     private float spawnX, spawnY, spawnZ = 0f;
+    public int score, missed = 0;
+    private bool gameOver = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(RoutineSpawn());
+        coroutine = StartCoroutine(RoutineSpawn());
     }
     
     // Update is called once per frame
@@ -26,6 +46,11 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("lhand grab down");
             leftGrabDown = true;
+            if (leftCollider.BallDetected)
+            {
+                leftCollider.DestroyBall();
+                score++;
+            }
         }
         else if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, OVRInput.Controller.LTouch) <= 0.5f && leftGrabDown)
         {
@@ -37,6 +62,11 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("rhand grab down");
             rightGrabDown = true;
+            if (rightCollider.BallDetected)
+            {
+                rightCollider.DestroyBall();
+                score++;
+            }
         }
         else if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, OVRInput.Controller.RTouch) <= 0.5f && rightGrabDown)
         {
@@ -44,19 +74,38 @@ public class GameManager : MonoBehaviour
             rightGrabDown = false;
         }
 
+        //Position check and offset
         if (Vector2.Distance(new Vector2(playerCamera.position.x, playerCamera.position.z), new Vector2(centerPoint.position.x, centerPoint.position.z)) >= 0.2f)
         {
             Vector3 cameraOffset = playerCamera.position - centerPoint.position;
             transform.position = new Vector3(transform.position.x - cameraOffset.x, transform.position.y, transform.position.z - cameraOffset.z);
         }
-    }
 
+        if (currentSpeed > 0f)
+        {
+            currentSpeed -= 1 / 30.0f * Time.deltaTime;
+        }
+        else if(currentSpeed <= 0f)
+        {
+            currentSpeed = 0f;
+        }
+        //Gameover condition
+        if (missed >= 5)
+        {
+            gameOver = true;
+            StopCoroutine(coroutine);
+        }
+        if (gameOver)
+        {
+
+        }
+    }
+    
     private IEnumerator RoutineSpawn()
     {
-        WaitForSecondsRealtime wait = new(0.5f);
-
-        while (true)
+        while (!gameOver)
         {
+            WaitForSecondsRealtime wait = new(currentSpeed);
             yield return wait;
             
             angle = Random.Range(-90f, 90f);
