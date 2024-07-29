@@ -26,11 +26,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private ControllerCollider leftCollider, rightCollider;
     private bool leftGrabDown, rightGrabDown = false;
-    public float currentSpeed = 0f;
+    public float currentSpeed = 2f;
     private float angle, height, radius = 0f;
     private float spawnX, spawnY, spawnZ = 0f;
     public int score, missed = 0;
     private bool gameOver = false;
+    [SerializeField]
+    private GameObject scoreboardCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -97,7 +99,7 @@ public class GameManager : MonoBehaviour
         }
         if (gameOver)
         {
-
+            scoreboardCanvas.SetActive(true);
         }
     }
     
@@ -132,5 +134,17 @@ public class GameManager : MonoBehaviour
         spawnY = playerCamera.position.y + heightCheck;
 
         return Physics.CheckSphere(new Vector3(spawnX, spawnY, spawnZ) + centerPoint.position, 0.1f);
+    }
+    public void Restart()
+    {
+        coroutine = StartCoroutine(RoutineSpawn());
+        currentSpeed = 2f;
+        score = missed = 0;
+        gameOver = false;
+        scoreboardCanvas.SetActive(false);
+    }
+    public void Home()
+    {
+        scoreboardCanvas.SetActive(false);
     }
 }
