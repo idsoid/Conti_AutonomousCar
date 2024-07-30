@@ -31,6 +31,8 @@ public class ControllerCollider : MonoBehaviour
         if (detectedBall != null)
         {
             Destroy(detectedBall);
+            detectedBall = null;
+            ballDetected = false;
         }
     }
 }
