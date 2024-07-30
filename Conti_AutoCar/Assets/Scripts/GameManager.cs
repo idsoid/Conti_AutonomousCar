@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     private Coroutine coroutine;
     [SerializeField]
-    private Transform centerPoint, playerCamera;
+    private Transform centerPoint, playerCamera, player;
     [SerializeField]
     private GameObject spherePrefab;
     [SerializeField]
@@ -31,11 +31,11 @@ public class GameManager : MonoBehaviour
     private float angle, height, radius = 0f;
     private float spawnX, spawnY, spawnZ = 0f;
     public int score, missed = 0;
-    private bool gameOver = false;
+    public bool gameOver = false;
     [SerializeField]
     private GameObject scoreboardCanvas;
     [SerializeField]
-    private TextMeshPro scoreText;
+    private TMP_Text scoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -80,10 +80,10 @@ public class GameManager : MonoBehaviour
         }
 
         //Position check and offset
-        if (Vector2.Distance(new Vector2(playerCamera.position.x, playerCamera.position.z), new Vector2(centerPoint.position.x, centerPoint.position.z)) >= 0.2f)
+        if (Vector2.Distance(new Vector2(playerCamera.position.x, playerCamera.position.z), new Vector2(centerPoint.position.x, centerPoint.position.z)) >= 0.2f || OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.LTouch))
         {
             Vector3 cameraOffset = playerCamera.position - centerPoint.position;
-            transform.position = new Vector3(transform.position.x - cameraOffset.x, transform.position.y, transform.position.z - cameraOffset.z);
+            player.transform.position = new Vector3(player.transform.position.x - cameraOffset.x, player.transform.position.y, player.transform.position.z - cameraOffset.z);
         }
 
         if (currentSpeed > 0f)
@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
             yield return wait;
             
             angle = Random.Range(-90f, 90f);
-            height = Random.Range(-0.3f, 0.3f);
+            height = Random.Range(-0.1f, 0.1f);
             radius = Random.Range(0.5f, 0.6f);
             while (CheckPosSpawn(angle, height, radius))
             {
