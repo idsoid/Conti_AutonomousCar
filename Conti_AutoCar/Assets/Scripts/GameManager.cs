@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
     private bool gameOver = false;
     [SerializeField]
     private GameObject scoreboardCanvas;
+    [SerializeField]
+    private TextMeshPro scoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -100,6 +103,7 @@ public class GameManager : MonoBehaviour
         if (gameOver)
         {
             scoreboardCanvas.SetActive(true);
+            scoreText.text = "Score: " + score;
         }
     }
     

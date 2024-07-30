@@ -990,6 +990,7 @@ MonoBehaviour:
   currentSpeed: 2
   score: 0
   missed: 0
+  scoreboardCanvas: {fileID: 1680398415}
 --- !u!1 &1189472686
 GameObject:
   m_ObjectHideFlags: 0
