@@ -79,13 +79,6 @@ public class GameManager : MonoBehaviour
             rightGrabDown = false;
         }
 
-        //Position check and offset
-        if (Vector2.Distance(new Vector2(playerCamera.position.x, playerCamera.position.z), new Vector2(centerPoint.position.x, centerPoint.position.z)) >= 0.2f || OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.LTouch))
-        {
-            Vector3 cameraOffset = playerCamera.position - centerPoint.position;
-            player.transform.position = new Vector3(player.transform.position.x - cameraOffset.x, player.transform.position.y, player.transform.position.z - cameraOffset.z);
-        }
-
         if (currentSpeed > 0f)
         {
             currentSpeed -= 1 / 30.0f * Time.deltaTime;
@@ -114,15 +107,15 @@ public class GameManager : MonoBehaviour
             WaitForSecondsRealtime wait = new(currentSpeed);
             yield return wait;
             
-            angle = Random.Range(-90f, 90f);
+            angle = Random.Range(-7.5f, 7.5f);
             height = Random.Range(-0.1f, 0.1f);
-            radius = Random.Range(0.5f, 0.6f);
+            radius = Random.Range(-0.25f, -0.3f);
             while (CheckPosSpawn(angle, height, radius))
             {
                 Debug.Log("finding new spawn pos");
                 angle = Random.Range(-90f, 90f);
                 height = Random.Range(-0.3f, 0.3f);
-                radius = Random.Range(0.5f, 0.6f);
+                radius = Random.Range(-0.5f, -0.6f);
             }
 
             Instantiate(spherePrefab, new Vector3(spawnX, spawnY, spawnZ) + centerPoint.position, Quaternion.identity);
