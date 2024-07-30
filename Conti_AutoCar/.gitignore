@@ -61,6 +61,10 @@ sysinfo.txt
 *.unitypackage
 *.app
 
+# Videos
+*.mp4
+*.m4v
+
 # Crashlytics generated file
 crashlytics-build.properties
 

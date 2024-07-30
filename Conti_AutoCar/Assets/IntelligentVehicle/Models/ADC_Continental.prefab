@@ -167,6 +167,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ADC_Continental
       objectReference: {fileID: 0}
+    - target: {fileID: 4134850509352912809, guid: a765ccd07983b364eb148f85ce944b42,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
