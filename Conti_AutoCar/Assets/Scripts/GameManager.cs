@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
-=======
 using TMPro;
->>>>>>> d41319eb913037c54f1c5c5923971a8707d13dce
 
 public class GameManager : MonoBehaviour
 {
@@ -37,11 +34,8 @@ public class GameManager : MonoBehaviour
     private bool gameOver = false;
     [SerializeField]
     private GameObject scoreboardCanvas;
-<<<<<<< HEAD
-=======
     [SerializeField]
     private TextMeshPro scoreText;
->>>>>>> d41319eb913037c54f1c5c5923971a8707d13dce
 
     // Start is called before the first frame update
     void Start()
@@ -109,10 +103,8 @@ public class GameManager : MonoBehaviour
         if (gameOver)
         {
             scoreboardCanvas.SetActive(true);
-<<<<<<< HEAD
-=======
             scoreText.text = "Score: " + score;
->>>>>>> d41319eb913037c54f1c5c5923971a8707d13dce
+            scoreText.text = "Score: " + score;
         }
     }
     
