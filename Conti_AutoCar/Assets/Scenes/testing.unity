@@ -602,6 +602,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 625827485}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &625827490 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2483171112402263010, guid: f54012181eacade4ea242c65f804720f,
+    type: 3}
+  m_PrefabInstance: {fileID: 625827485}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &625827491 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2483171112400622654, guid: f54012181eacade4ea242c65f804720f,
@@ -772,7 +778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centerPoint: {fileID: 2095321205}
   playerCamera: {fileID: 625827488}
-  player: {fileID: 0}
+  player: {fileID: 625827490}
   spherePrefab: {fileID: 8333470710618226785, guid: cdc5fd20ceb898b459cd624ddcee68cf,
     type: 3}
   leftCollider: {fileID: 391418314}
@@ -782,7 +788,7 @@ MonoBehaviour:
   missed: 0
   gameOver: 0
   scoreboardCanvas: {fileID: 1680398415}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 1164125131600211431}
 --- !u!4 &1414381342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8193728870774061072, guid: f54012181eacade4ea242c65f804720f,
@@ -1095,6 +1101,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_scoreboard
       objectReference: {fileID: 0}
+    - target: {fileID: 4527457660589857984, guid: fdcab2ee39f35a8478d19f5833025140,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6554287123111735288, guid: fdcab2ee39f35a8478d19f5833025140,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1105,6 +1116,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdcab2ee39f35a8478d19f5833025140, type: 3}
+--- !u!114 &1164125131600211431 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1774763676043450752, guid: fdcab2ee39f35a8478d19f5833025140,
+    type: 3}
+  m_PrefabInstance: {fileID: 1164125131600211430}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

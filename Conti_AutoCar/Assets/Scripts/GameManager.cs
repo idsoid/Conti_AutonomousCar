@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private Coroutine coroutine;
+    private Coroutine coroutine, coroutine1, coroutine2;
     [SerializeField]
     private Transform centerPoint, playerCamera, player;
     [SerializeField]
@@ -30,10 +30,13 @@ public class GameManager : MonoBehaviour
     public float currentSpeed = 2f;
     private float angle, height, radius = 0f;
     private float spawnX, spawnY, spawnZ = 0f;
+    private float x1, y1, z1 = 0f;
+    private bool ball1set = false;
+    public bool OKspawn = true;
     public int score, missed = 0;
     public bool gameOver = false;
     [SerializeField]
-    private GameObject scoreboardCanvas;
+    private GameObject scoreboardPanel;
     [SerializeField]
     private TMP_Text scoreText;
 
@@ -95,30 +98,59 @@ public class GameManager : MonoBehaviour
         }
         if (gameOver)
         {
-            scoreboardCanvas.SetActive(true);
+            scoreboardPanel.SetActive(true);
             scoreText.text = "Score: " + score;
         }
     }
     
     private IEnumerator RoutineSpawn()
     {
+        int loopCount = 0;
+        Debug.Log("spawn started");
         while (!gameOver)
         {
-            WaitForSecondsRealtime wait = new(currentSpeed);
+            WaitForSecondsRealtime wait = new(0);
             yield return wait;
-            
-            angle = Random.Range(-7.5f, 7.5f);
-            height = Random.Range(-0.1f, 0.1f);
-            radius = Random.Range(-0.25f, -0.3f);
+
+            angle = Random.Range(-70f, 70f);
+            height = Random.Range(-0.2f, 0.2f);
+            radius = Random.Range(-0.35f, -0.4f);
             while (CheckPosSpawn(angle, height, radius))
             {
                 Debug.Log("finding new spawn pos");
-                angle = Random.Range(-90f, 90f);
-                height = Random.Range(-0.3f, 0.3f);
-                radius = Random.Range(-0.5f, -0.6f);
+                angle = Random.Range(-70f, 70f);
+                height = Random.Range(-0.2f, 0.2f);
+                radius = Random.Range(-0.35f, -0.4f);
+                loopCount++;
+                if (loopCount >= 10)
+                {
+                    break;
+                }
+            }
+            if (loopCount < 10)
+            {
+                loopCount = 0;
+                OKspawn = true;
+            }
+            else if (loopCount >= 10)
+            {
+                loopCount = 0;
+                OKspawn = false;
             }
 
-            Instantiate(spherePrefab, new Vector3(spawnX, spawnY, spawnZ) + centerPoint.position, Quaternion.identity);
+            if (!ball1set)
+            {
+                x1 = spawnX;
+                y1 = spawnY;
+                z1 = spawnZ;
+                ball1set = true;
+            }
+            else if (ball1set && OKspawn)
+            {
+                Instantiate(spherePrefab, new Vector3(x1, y1, z1) + new Vector3(centerPoint.position.x, 0, centerPoint.position.z), Quaternion.identity);
+                Instantiate(spherePrefab, new Vector3(spawnX, spawnY, spawnZ) + new Vector3(centerPoint.position.x, 0, centerPoint.position.z), Quaternion.identity);
+                ball1set = false;
+            }
         }
     }
     private bool CheckPosSpawn(float angleCheck, float heightCheck, float radiusCheck)
@@ -130,18 +162,23 @@ public class GameManager : MonoBehaviour
         spawnZ = Mathf.Sin(angleInRadians) * radiusCheck;
         spawnY = playerCamera.position.y + heightCheck;
 
-        return Physics.CheckSphere(new Vector3(spawnX, spawnY, spawnZ) + centerPoint.position, 0.1f);
+        return Physics.CheckSphere(new Vector3(spawnX, spawnY, spawnZ) + new Vector3(centerPoint.position.x, 0, centerPoint.position.z), 0.125f);
     }
     public void Restart()
     {
-        coroutine = StartCoroutine(RoutineSpawn());
         currentSpeed = 2f;
-        score = missed = 0;
+        score = 0;
+        missed = 0;
         gameOver = false;
-        scoreboardCanvas.SetActive(false);
+        scoreboardPanel.SetActive(false);
+        coroutine = StartCoroutine(RoutineSpawn());
     }
-    public void Home()
+    public void Exit()
     {
-        scoreboardCanvas.SetActive(false);
+        currentSpeed = 2f;
+        score = 0;
+        missed = 0;
+        gameOver = false;
+        scoreboardPanel.SetActive(false);
     }
 }
