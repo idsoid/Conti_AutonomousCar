@@ -19,24 +19,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private Coroutine coroutine, coroutine1, coroutine2;
+    private Coroutine coroutine;
     [SerializeField]
     private Transform centerPoint, playerCamera, player;
     [SerializeField]
     private GameObject spherePrefab;
+    private GameObject sphereObj;
     [SerializeField]
     private ControllerCollider leftCollider, rightCollider;
     private bool leftGrabDown, rightGrabDown = false;
     public float currentSpeed = 2f;
     private float angle, height, radius = 0f;
     private float spawnX, spawnY, spawnZ = 0f;
-    private float x1, y1, z1 = 0f;
     private bool ball1set = false;
     public bool OKspawn = true;
     public int score, missed = 0;
     public bool gameOver = false;
     [SerializeField]
-    private GameObject scoreboardPanel;
+    private GameObject scoreboardCanvas;
     [SerializeField]
     private TMP_Text scoreText;
 
@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
             rightGrabDown = false;
         }
 
+        //Speed up
         if (currentSpeed > 0f)
         {
             currentSpeed -= 1 / 30.0f * Time.deltaTime;
@@ -91,16 +92,17 @@ public class GameManager : MonoBehaviour
             currentSpeed = 0f;
         }
         //Gameover condition
-        if (missed >= 5)
+        if (missed >= 4)
         {
             gameOver = true;
             StopCoroutine(coroutine);
         }
         if (gameOver)
         {
-            scoreboardPanel.SetActive(true);
+            scoreboardCanvas.SetActive(true);
             scoreText.text = "Score: " + score;
         }
+        scoreText.text = "Score: " + score;
     }
     
     private IEnumerator RoutineSpawn()
@@ -109,17 +111,17 @@ public class GameManager : MonoBehaviour
         Debug.Log("spawn started");
         while (!gameOver)
         {
-            WaitForSecondsRealtime wait = new(0);
+            WaitForSecondsRealtime wait = new(currentSpeed);
             yield return wait;
 
             angle = Random.Range(-70f, 70f);
-            height = Random.Range(-0.2f, 0.2f);
+            height = Random.Range(-0.15f, 0.15f);
             radius = Random.Range(-0.35f, -0.4f);
             while (CheckPosSpawn(angle, height, radius))
             {
                 Debug.Log("finding new spawn pos");
                 angle = Random.Range(-70f, 70f);
-                height = Random.Range(-0.2f, 0.2f);
+                height = Random.Range(-0.15f, 0.15f);
                 radius = Random.Range(-0.35f, -0.4f);
                 loopCount++;
                 if (loopCount >= 10)
@@ -140,16 +142,18 @@ public class GameManager : MonoBehaviour
 
             if (!ball1set)
             {
-                x1 = spawnX;
-                y1 = spawnY;
-                z1 = spawnZ;
+                sphereObj = Instantiate(spherePrefab, new Vector3(spawnX, spawnY, spawnZ) + new Vector3(centerPoint.position.x, 0, centerPoint.position.z), Quaternion.identity);
+                sphereObj.GetComponent<MeshRenderer>().enabled = false;
+                sphereObj.GetComponent<BallSpawn>().enabled = false;
                 ball1set = true;
             }
             else if (ball1set && OKspawn)
             {
-                Instantiate(spherePrefab, new Vector3(x1, y1, z1) + new Vector3(centerPoint.position.x, 0, centerPoint.position.z), Quaternion.identity);
+                sphereObj.GetComponent<MeshRenderer>().enabled = true;
+                sphereObj.GetComponent<BallSpawn>().enabled = true;
                 Instantiate(spherePrefab, new Vector3(spawnX, spawnY, spawnZ) + new Vector3(centerPoint.position.x, 0, centerPoint.position.z), Quaternion.identity);
                 ball1set = false;
+                sphereObj = null;
             }
         }
     }
@@ -162,7 +166,7 @@ public class GameManager : MonoBehaviour
         spawnZ = Mathf.Sin(angleInRadians) * radiusCheck;
         spawnY = playerCamera.position.y + heightCheck;
 
-        return Physics.CheckSphere(new Vector3(spawnX, spawnY, spawnZ) + new Vector3(centerPoint.position.x, 0, centerPoint.position.z), 0.125f);
+        return Physics.CheckSphere(new Vector3(spawnX, spawnY, spawnZ) + new Vector3(centerPoint.position.x, 0, centerPoint.position.z), 0.15f);
     }
     public void Restart()
     {
@@ -170,7 +174,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         missed = 0;
         gameOver = false;
-        scoreboardPanel.SetActive(false);
+        scoreboardCanvas.SetActive(false);
         coroutine = StartCoroutine(RoutineSpawn());
     }
     public void Exit()
@@ -179,6 +183,6 @@ public class GameManager : MonoBehaviour
         score = 0;
         missed = 0;
         gameOver = false;
-        scoreboardPanel.SetActive(false);
+        scoreboardCanvas.SetActive(false);
     }
 }
