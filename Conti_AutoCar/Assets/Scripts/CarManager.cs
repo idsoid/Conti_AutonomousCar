@@ -6,6 +6,8 @@ public class CarManager : MonoBehaviour
 {
     [SerializeField]
     private List<Material> screenMaterial;
+    [SerializeField]
+    private GameObject gameHead;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +19,10 @@ public class CarManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ToggleGame()
+    {
+        gameHead.SetActive(!gameHead.activeSelf);
     }
 }
