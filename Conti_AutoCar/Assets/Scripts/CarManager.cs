@@ -14,6 +14,7 @@ public class CarManager : MonoBehaviour
     private List<Material> screenMaterial;
     [SerializeField]
     private GameObject gameHead;
+    public bool musicSelected = false;
 
     // Start is called before the first frame update
     void Start()
