@@ -11,7 +11,7 @@ public class CarManager : MonoBehaviour
     private MeshRenderer displayMeshRenderer;
     [SerializeField]
     private ToggleGroup themeChoice;
-    private int themeNumber = 1;
+    public int themeNumber = 1;
     [SerializeField]
     private List<Material> screenMaterial;
     //Game
@@ -23,7 +23,8 @@ public class CarManager : MonoBehaviour
     [SerializeField]
     private VideoPlayer musicTracker, bgTracker, leftDisplay, rightDisplay;
     [SerializeField]
-    private GameObject rectangleUI, textUI, fullscreenUI;
+    private GameObject rectangleUI, textUI, fullscreenUI, pauseplayButton;
+    private bool musicPaused = false;
     //Face Analysis
     [SerializeField]
     private GameObject exitButton;
@@ -33,16 +34,20 @@ public class CarManager : MonoBehaviour
     private float faceTimer = 0f;
     private int dir = 1;
     public int step = 0;
+    //DigitalCompanion
+    [SerializeField]
+    private Animator dcAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
-        displayMeshRenderer.material = screenMaterial[1];
+        displayMeshRenderer.material = screenMaterial[6];
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Face Scan animation
         if (scanning)
         {
             switch (step)
@@ -250,12 +255,17 @@ public class CarManager : MonoBehaviour
             rectangleUI.SetActive(false);
             textUI.SetActive(false);
             fullscreenUI.SetActive(true);
+            pauseplayButton.SetActive(true);
+            if (dcAnimator.GetInteger("State") != 1)
+            {
+                dcAnimator.SetInteger("State", 1);
+            }
             StartCoroutine(VideoTimestamp(vid));
         }
     }
     private IEnumerator VideoTimestamp(VideoPlayer vid)
     {
-        if (musicTracker.isPlaying)
+        if (!musicPaused)
         {
             musicTracker.Pause();
         }
@@ -264,23 +274,16 @@ public class CarManager : MonoBehaviour
         yield return new WaitUntil(() => vid.isPrepared);
         yield return new WaitUntil(() => vid.canSetTime);
 
-        musicTracker.Play();
-        vid.SetDirectAudioMute(0, true);
-        vid.Play();
-        vid.time = musicTracker.time;
-    }
-    public void PlayMusic()
-    {
-        if (musicSelected && musicTracker.isPaused)
+        if (!musicPaused)
         {
             musicTracker.Play();
         }
-    }
-    public void PauseMusic()
-    {
-        if (musicSelected && musicTracker.isPlaying)
+        vid.SetDirectAudioMute(0, true);
+        vid.Play();
+        vid.time = musicTracker.time;
+        if (musicPaused)
         {
-            musicTracker.Pause();
+            vid.Pause();
         }
     }
     public void MusicFullscreenMode()
@@ -302,11 +305,39 @@ public class CarManager : MonoBehaviour
         bgTracker.SetDirectAudioMute(0, false);
     }
 
+    public void PausePlayVideo(VideoPlayer vid)
+    {
+        if (vid.isPlaying)
+        {
+            vid.Pause();
+            musicPaused = true;
+        }
+        else if (vid.isPaused)
+        {
+            vid.Play();
+            musicPaused = false;
+        }
+    }
+
     public void FaceAnalysis()
     {
+        Color color = faceImages[1].material.color;
+        color.r = 1;
+        color.g = 1;
+        faceImages[1].material.color = color;
+        faceImages[2].transform.localPosition = new Vector3(-0.40019992f, 0.0999999791f, -0.0053f);
+
         scanning = true;
         faceImages[0].gameObject.SetActive(true);
         increasingAlpha = true;
         step = 0;
+    }
+
+    public void CompanionState(int state)
+    {
+        if (dcAnimator.GetInteger("State") != state)
+        {
+            dcAnimator.SetInteger("State", state);
+        }
     }
 }

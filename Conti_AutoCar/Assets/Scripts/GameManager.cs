@@ -184,5 +184,6 @@ public class GameManager : MonoBehaviour
         missed = 0;
         gameOver = false;
         scoreboardCanvas.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
