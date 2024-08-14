@@ -2670,7 +2670,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9909
+      value: 0.9908447
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
         type: 3}
@@ -2685,7 +2685,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
         type: 3}
@@ -2714,6 +2714,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4202798675411607032, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
         type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -4202798675411607032, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bd1eb21d3b184b045ac86fed15bddd10, type: 2}
@@ -2729,6 +2734,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1823817582581819116, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
         type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823817582581819116, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1d23ce24e973d6547aeadcb1582dda71, type: 2}
@@ -2739,14 +2749,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5074512353664290214, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
         type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074512353664290214, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1d23ce24e973d6547aeadcb1582dda71, type: 2}
     - target: {fileID: 8153101253863224186, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
         type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153101253863224186, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1d23ce24e973d6547aeadcb1582dda71, type: 2}
+    - target: {fileID: 8743813690021804245, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8743813690021804245, guid: 8968e4f2be9d59e44a4bf88a54d89b24,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2799,7 +2824,7 @@ GameObject:
   - component: {fileID: 259402004}
   - component: {fileID: 259402003}
   - component: {fileID: 259402002}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Button_business
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2944,7 +2969,7 @@ GameObject:
   - component: {fileID: 266158381}
   - component: {fileID: 266158380}
   - component: {fileID: 266158379}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Button_movie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3023,6 +3048,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2040009463}
+        m_TargetAssemblyTypeName: CarManager, Assembly-CSharp
+        m_MethodName: CompanionState
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5169,7 +5206,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1916526147}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
@@ -6181,7 +6218,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 00b10c42f1485a842802fd018ba65f55, type: 2}
@@ -6458,7 +6495,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -3846018093981099296, guid: 158806a6ecb1ff74d99974412d8ce197, type: 3}
@@ -6563,7 +6600,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: ee0f49247466e754e94d150726bfc9bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6722,7 +6759,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: debaa83140ce5f244b06ce85516eac26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9796,7 +9833,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f19361f8da5c9f445bcd3b901aa8a7c9, type: 2}
@@ -9879,7 +9916,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 4874126678125670354, guid: 67a4b2451e23cbd4d9e4df806c382340, type: 3}
@@ -10647,7 +10684,7 @@ GameObject:
   - component: {fileID: 1331401548}
   - component: {fileID: 1331401547}
   - component: {fileID: 1331401546}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Button_game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11564,7 +11601,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &1468259625
 MonoBehaviour:
@@ -12870,7 +12907,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 965c591327c2d8d48938d99ae12aa1f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15604,8 +15641,6 @@ MonoBehaviour:
   playerCamera: {fileID: 1692758715}
   playerMaxHeight: {fileID: 306509233}
   playerMinHeight: {fileID: 2096016291}
-  playerMaxLength: {fileID: 1897693342}
-  playerMinLength: {fileID: 1743595038}
   playerSet: 0
 --- !u!1 &1913397391
 GameObject:
@@ -15863,7 +15898,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5581c3f64fd073c44a891b9f67713a37, type: 2}
@@ -16176,7 +16211,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 976b7e32abf9c0842a54a40194b3a52f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -17765,7 +17800,7 @@ GameObject:
   - component: {fileID: 2144507824}
   - component: {fileID: 2144507823}
   - component: {fileID: 2144507822}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Button_music
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -288,11 +288,13 @@ public class CarManager : MonoBehaviour
     }
     public void MusicFullscreenMode()
     {
+        displayMeshRenderer.GetComponent<VideoPlayer>().SetDirectAudioMute(0, true);
         leftDisplay.SetDirectAudioMute(0, true);
         rightDisplay.SetDirectAudioMute(0, true);
     }
     public void ExitFullscreeen()
     {
+        displayMeshRenderer.GetComponent<VideoPlayer>().SetDirectAudioMute(0, false);
         leftDisplay.SetDirectAudioMute(0, false);
         rightDisplay.SetDirectAudioMute(0, false);
     }
@@ -303,6 +305,20 @@ public class CarManager : MonoBehaviour
     public void UnmuteBackground()
     {
         bgTracker.SetDirectAudioMute(0, false);
+    }
+    public void PauseMusic()
+    {
+        if (!musicPaused)
+        {
+            musicTracker.Pause();
+        }
+    }
+    public void PlayMusic()
+    {
+        if (!musicPaused)
+        {
+            musicTracker.Play();
+        }
     }
 
     public void PausePlayVideo(VideoPlayer vid)

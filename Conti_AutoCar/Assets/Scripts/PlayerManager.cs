@@ -6,9 +6,9 @@ using System;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
-    private List<Transform> carPoints; 
+    private List<Transform> carPoints;
     [SerializeField]
-    private Transform playerCamera, playerMaxHeight, playerMinHeight, playerMaxLength, playerMinLength;
+    private Transform playerCamera, playerMaxHeight, playerMinHeight;
     public bool playerSet = false;
     private int adjustCount = 0;
     
